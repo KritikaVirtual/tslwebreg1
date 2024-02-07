@@ -1,0 +1,1 @@
+export const pageDesignGrpRegSelector = (state) => state.pageDesignGrpReg;

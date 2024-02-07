@@ -1,0 +1,30 @@
+.table-responsive>.table-bordered {
+    border: 0;
+    margin-top: 20px;
+}
+.btn.btn-save{
+    width: 100%;
+}
+.control-label{
+    padding: 7px;
+    margin: 0px;
+    font-size: 16px;
+    font-weight: 600;
+}
+.controls .panel-default .panel-heading{
+    padding: 0px !important;
+}
+
+.col-md-12.col-xs-12.label_registration {
+    /* display: flex; */
+    align-items: baseline;
+}
+
+.label_registration label {
+    width: 100%;
+    font-size: 15px;
+}
+
+.invitation-wrap.reg_type_form{
+    margin-top: 0;
+}

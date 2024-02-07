@@ -1,0 +1,1 @@
+export const registrantsSelector = (state) => state.registrants;

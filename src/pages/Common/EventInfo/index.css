@@ -1,0 +1,19 @@
+.table-responsive>.table-bordered {
+    border: 0;
+    margin-top: 20px;
+}
+.templateLink {
+    margin-left: 40px
+}
+.invitation-wrap {
+    margin-top: 0  !important;
+}
+.templateBtn{
+    text-align: center;
+}
+.templateBtn button{
+    margin: 10px;
+    width: 30%;
+    padding: 15px !important;
+}
+

@@ -1,0 +1,1 @@
+export const eventField = (state) => state.eventInfo.eventField;

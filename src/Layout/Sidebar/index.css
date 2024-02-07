@@ -1,0 +1,132 @@
+.gray-back { background-color:#ebebeb;  padding:20px 20px; font-family:poppins;  }
+.admin-header {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 20px;
+	margin-bottom:50px; 
+}
+.modal-header{ border-bottom:0px !important;}
+.admin-header ul {
+    margin-bottom: 0px;
+    padding-left: 0px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding-top: 12px;
+}
+.admin-header ul li { list-style:none;  }
+.admin-header ul li select { border:0px; font-size:14px;  }
+.inside-header {
+    background-color: #00aeef;
+    margin-bottom: 30px;
+    border-radius: 50px;
+	padding:20px 30px; 
+}
+.inside-header  ul { margin-bottom:0px; padding-left:0px; display:flex; }
+.inside-header ul li { list-style:none; margin-right:20px; }
+.btn.blue-btn {  background-color: #024270; }
+.show-number { text-align:right; }
+.powered-wrap { text-align:right; }
+.footer-copyright { padding:20px 0px; font-size:14px; }
+
+/*dashboard */
+body{ font-family:poppins; }
+.dashboard-content {
+    position: absolute;
+    top: 48%;
+    left: 50%;
+    transform: translate(-30%, -50%);
+}
+.dashboard-content  .h3{font-size:36px;}
+.product-img{width:3rem;}
+.sidebar .sidebar-brand {height: 6.375rem !important;}
+.sidebar-logo{width: 200px;}
+.sm-logo{display:none;}
+.bg-gradient-primary {
+   background-color: #fff; 
+    background-size: cover;
+	
+}
+ul#accordionSidebar {
+    background-color: #fff;
+}
+.btn-primary {
+	color: #090400;
+    background-color: #d1d3e2;
+    border-color: #d1d3e2;
+    
+}
+
+.btn-primary:hover {
+    color: #000;
+    background-color: #ffffff;
+    border-color: #d1d3e2;
+}
+
+.side-dashboard-wrap {
+    padding: 10px 20px;
+}
+
+.side-dashboard-wrap .nav-link .fa {
+    color: #007bff !important;
+    margin-right: 5px !important;
+    font-size: 1.1rem !important;
+}	
+
+.nav-link:hover .fa { color: #fff !important; }
+
+.sidebar .nav-item .nav-link span {
+    font-size: .85rem;
+    display: inline;
+    color: #000;
+}
+.sidebar-dark .nav-item .nav-link {
+    color: rgb(0 0 0);
+}
+.sidebar-dark .sidebar-heading {
+    color: rgb(0 0 0);
+    font-size: 16px;
+}
+.sidebar-dark hr.sidebar-divider {
+    border-top: 1px solid rgb(0 0 0 / 33%);
+}
+.sidebar .nav-item .nav-link {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 10px 20px;
+    width: 16rem;
+}
+.sidebar {
+    width: 16rem!important;
+}
+.nav-item:hover, .nav-item.active {   
+    background-color: #06a0dc;
+    border-radius: 50px;
+    color: #fff; }
+
+.sidebar-dark .nav-item.active .nav-link i{ color: #fff !important;}
+.sidebar .nav-item.active .nav-link span{ color:#fff;}
+.nav-item:hover .nav-link {  color: #fff; }
+.nav-item:hover .nav-link span {  color: #fff; }
+.sidebar-heading { margin-top:30px; margin-bottom:10px; }
+
+@media (min-width: 768px){
+    .sidebar.toggled .nav-item .nav-link span {
+        font-size: .65rem;
+        display: block;
+    }
+    .sidebar.toggled .sidebar-brand .sidebar-brand-icon{
+        margin-left:0px;
+    }
+    
+    }
+    @media (max-width: 767px){
+        .sidebar.toggled .sidebar-brand .sidebar-brand-icon{
+        margin-left:0px;
+    }
+    .rotate-n-15 {
+        margin-left: 0px;
+        transform: none;
+    }
+}
