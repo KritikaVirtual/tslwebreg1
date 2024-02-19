@@ -132,16 +132,16 @@ export function RegistrantInformation(props) {
 
     // registrantField ? registrantField
 
-    if(props.registrantField){
-      props.registrantField.map((data,index)=>{
-        if(data.bRequired === 1){
-          if (!fields[data.sCode] || fields[data.sCode] === "") {
-            formIsValid = false;
-            errors[data.sCode] = "*Please enter "+ data.sName;
-          }
-        }
-      })
-    }
+    // if(props.registrantField){
+    //   props.registrantField.map((data,index)=>{
+    //     if(data.bRequired === 1){
+    //       if (!fields[data.sCode] || fields[data.sCode] === "") {
+    //         formIsValid = false;
+    //         errors[data.sCode] = "*Please enter "+ data.sName;
+    //       }
+    //     }
+    //   })
+    // }
     
 
     // if (!fields["lRegType"] || fields["lRegType"] === "") {
@@ -837,7 +837,7 @@ export function RegistrantInformation(props) {
                             ""
                           )}
                         </li>
-                      </ul>
+                      </ul> 
 
                       <ul>
                         <li>

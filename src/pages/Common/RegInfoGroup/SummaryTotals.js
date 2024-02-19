@@ -16,26 +16,11 @@ export function SummaryTotals(props) {
   const [answersRegistrant, setAnswersRegistrant] = useState([]);
 
   useEffect(() => {
-    if (props.regAmountData || props.regTypesAmountData) {
-      let data = {};
-
-      if (props.regId && !props.regTypeEventOnChange) {
-        data = props.regAmountData ? props.regAmountData : data;
-      } else if (
-        props.regTypesAmountData &&
-        props.regTypesAmountData.dEarlyAmt !== undefined
-      ) {
-        data =
-          props.regAmountData && props.regAmountData !== undefined
-            ? props.regAmountData
-            : data;
-        data["dRegAmount"] = compareDates(props.regTypesAmountData);
-      }
-
+    if (props.summaryTotalsSum) {
+      let data = props.summaryTotalsSum;
+      
       data["dGrandTotal"] =
         (data.dRegAmount ? data.dRegAmount : 0) +
-        (data.dGuestsAmount ? data.dGuestsAmount : 0) +
-        (data.dAddRegAmount ? data.dAddRegAmount : 0) +
         (data.dSessionsAmount ? data.dSessionsAmount : 0) +
         (data.dServiceFeeAmt ? data.dServiceFeeAmt : 0) +
         (data.dTaxesAmt ? data.dTaxesAmt : 0) -
@@ -43,22 +28,26 @@ export function SummaryTotals(props) {
           (data.dSpecialDiscountAmt ? data.dSpecialDiscountAmt : 0));
       data["dTotalBalance"] =
         data["dGrandTotal"] +
-        (data.dCancellationFee ? data.dCancellationFee : 0) -
-        ((data.dTotalPaid ? data.dTotalPaid : 0) +
-          (data.dTotalRefund ? data.dTotalRefund : 0));
-
+        (data.dCancellationFee ? data.dCancellationFee : 0) 
+        // -
+        // ((data.dTotalPaid ? data.dTotalPaid : 0) +
+        //   (data.dTotalRefund ? data.dTotalRefund : 0));
       setFields({ ...data });
       // console.log('props.regAmountData',props.regAmountData)
-      if (props.regAmountData !== undefined) {
-        props.totalBalance(data["dTotalBalance"]);
-      }
-      props.dRegAmountValue(data.dRegAmount ? data.dRegAmount : 0);
+      // if (props.regAmountData !== undefined) {
+      //   props.totalBalance(data["dTotalBalance"]);
+      // }
+      // props.dRegAmountValue(data.dRegAmount ? data.dRegAmount : 0);
     }
     // return ()=>{
     //   clearRegistrantData()
     // }
-  }, [props.regAmountData, props.regTypesAmountData]);
-
+  }, [props.summaryTotalsSum]);
+  useEffect(()=>{
+    if(props.summaryTotalsSum){
+      setFields(props.summaryTotalsSum)
+    }
+  },[props.summaryTotalsSum])
   const compareDates = (data) => {
     var regTypeAmount = 0;
 
@@ -72,7 +61,7 @@ export function SummaryTotals(props) {
 
     const dtEarlyDateDB = convertDateFormat(data.dtEarlyDate);
     const dtStandardDateDB = convertDateFormat(data.dtStandardDate);
-
+ 
     if (
       Date.parse(dtEarlyDateDB) === Date.parse(currentDate) ||
       Date.parse(dtEarlyDateDB) > Date.parse(currentDate)
@@ -106,8 +95,6 @@ export function SummaryTotals(props) {
     data[event.target.name] = parseInt(event.target.value, 10);
     data["dGrandTotal"] =
       (data.dRegAmount ? data.dRegAmount : 0) +
-      (data.dGuestsAmount ? data.dGuestsAmount : 0) +
-      (data.dAddRegAmount ? data.dAddRegAmount : 0) +
       (data.dSessionsAmount ? data.dSessionsAmount : 0) +
       (data.dServiceFeeAmt ? data.dServiceFeeAmt : 0) +
       (data.dTaxesAmt ? data.dTaxesAmt : 0) -
@@ -116,11 +103,12 @@ export function SummaryTotals(props) {
 
     data["dTotalBalance"] =
       data["dGrandTotal"] +
-      (data.dCancellationFee ? data.dCancellationFee : 0) -
-      ((data.dTotalPaid ? data.dTotalPaid : 0) +
-        (data.dTotalRefund ? data.dTotalRefund : 0));
+      (data.dCancellationFee ? data.dCancellationFee : 0)
+      //  -
+      // ((data.dTotalPaid ? data.dTotalPaid : 0) +
+      //   (data.dTotalRefund ? data.dTotalRefund : 0));
     setFields({ ...data });
-    props.totalBalance(data["dTotalBalance"]);
+    // props.totalBalance(data["dTotalBalance"]);
   };
 
   const _handleSubmit = (event) => {
@@ -198,44 +186,6 @@ export function SummaryTotals(props) {
                           </tr>
 
                           <tr>
-                            <td>Guests Amount: +</td>
-                            <td>
-                              {" "}
-                              <input
-                                type="text"
-                                className="form-control"
-                                name="dGuestsAmount"
-                                value={
-                                  fields.dGuestsAmount
-                                    ? fields.dGuestsAmount
-                                    : 0
-                                }
-                                onChange={(event) => handleChange(event)}
-                                disabled
-                              />
-                            </td>
-                          </tr>
-
-                          <tr>
-                            <td>Additional Registrants Amount: +</td>
-                            <td>
-                              {" "}
-                              <input
-                                type="text"
-                                className="form-control"
-                                name="dAddRegAmount"
-                                value={
-                                  fields.dAddRegAmount
-                                    ? fields.dAddRegAmount
-                                    : 0
-                                }
-                                onChange={(event) => handleChange(event)}
-                                disabled
-                              />
-                            </td>
-                          </tr>
-
-                          <tr>
                             <td>Sessions: +</td>
                             <td>
                               {" "}
@@ -270,19 +220,6 @@ export function SummaryTotals(props) {
                                     }
                                     onChange={(event) => handleChange(event)}
                                     disabled
-                                  />
-                                </li>
-                                <li>
-                                  <select name="">
-                                    {/* <option value="">1</option>
-                              <option value="">2</option> */}
-                                  </select>
-                                </li>
-                                <li>
-                                  <input
-                                    type="text"
-                                    className="form-control"
-                                    name=""
                                   />
                                 </li>
                               </ul>

@@ -15,7 +15,7 @@ export function SessionsForm(props) {
 
   useEffect(() => {
     if (
-      sessionStorage.getItem("regSessionId") !== undefined &&
+      sessionStorage.getItem("regSessionId") !== undefined && 
       sessionStorage.getItem("regSessionId") > 0
     ) {
       setRegSessionId(sessionStorage.getItem("regSessionId"));

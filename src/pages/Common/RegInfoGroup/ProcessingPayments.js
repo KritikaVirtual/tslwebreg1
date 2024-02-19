@@ -19,7 +19,7 @@ export function ProcessingPayments(props) {
   const [answersRegistrant, setAnswersRegistrant] = useState([]);
 
   const handleChange = (event) => {
-    let data = fields;
+    let data = fields; 
     data[event.target.name] = event.target.value;
     setFields({ ...data });
   };

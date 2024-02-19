@@ -428,7 +428,7 @@ export function RegInfoGroup(props) {
                         : ""
                     }
                     getRegAmount={(data) => getRegAmountData(data)}
-                    
+                    getRegTypesAmount={(data) => getRegTypesAmount(data)}
                   />                  
                 </Accordion.Body>
               </Accordion.Item>

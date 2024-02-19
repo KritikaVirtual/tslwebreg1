@@ -16,7 +16,7 @@ export function Payments(props) {
   const [enable, setEnable] = useState(true);
   const [clearFields, setClearFields] = useState(false);
 
-  const _handleEditClick = (data) => {
+  const _handleEditClick = (data) => { 
     if (data.lPaymentID) {
       sessionStorage.setItem("paymentId", data.lPaymentID);
       props.getRegPaymentsByID({

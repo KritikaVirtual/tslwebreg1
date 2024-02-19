@@ -268,6 +268,7 @@ export function GuestsAddtionalInformation(props) {
             regTypesAmountData={props.regTypesAmountData}
             getRegAmount={(data) => props.getRegAmount(data)}
             clearFields={clearFields}
+            getRegTypesAmount={(data)=>props.getRegTypesAmount(data)}
           />
         </ModalBox>
       </div>

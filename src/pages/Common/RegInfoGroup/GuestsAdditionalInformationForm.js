@@ -4,6 +4,7 @@ import { MultiSelect } from "react-multi-select-component";
 import Questions from "./Questions";
 import { Sessions } from "./Sessions";
 
+
 export function GuestsAddtionalInformationForm(props) {
   const [fields, setFields] = useState({
     sFirstName: "",
@@ -21,9 +22,10 @@ export function GuestsAddtionalInformationForm(props) {
   const [fieldsChecked, setFieldsChecked] = useState({});
   const [fieldsText, setFieldsText] = useState({});
   const [regId, setRegId] = useState("");
+  const [dRegAmount, setdRegAmount] = useState("");
+  
   const [answersRegistrant, setAnswersRegistrant] = useState([]);
   const [answersRegistrantData, setAnswersRegistrantData] = useState({});
-
   useEffect(() => {
     if (props.sendRegistrantInfoByID) {
       setFields(props.sendRegistrantInfoByID);
@@ -33,6 +35,12 @@ export function GuestsAddtionalInformationForm(props) {
     }
     
   }, [props.sendRegistrantInfoByID]);
+  
+  useEffect(() => {
+    if(props.regTypesAmountData !== undefined){
+    setdRegAmount(props.regTypesAmountData.dEarlyAmt);
+    }
+  },[props.regTypesAmountData.dEarlyAmt])
 
   useEffect(() => {
     if (
@@ -73,19 +81,7 @@ export function GuestsAddtionalInformationForm(props) {
     }
   },[props.answersGuestData])
 
-  useEffect(()=>{
-    if(props.regTypesAmountData && !regId){
-      let data = fields
-      const regTypeAmount = compareDates(props.regTypesAmountData)
-      if(fields.nType == '0'){
-        data.dAmount = regTypeAmount.regTypeGuestAmount
-      }else if(fields.nType == '1'){
-        data.dAmount = regTypeAmount.regTypeAddRegAmount
-      }
-      setFields({ ...data });
-    }
-  }, [props.regTypesAmountData]);
-
+ 
   const compareDates = (data) => {
     
     var regTypeAmount = {
@@ -126,9 +122,12 @@ export function GuestsAddtionalInformationForm(props) {
     let data = fields;
     data[event.target.name] = event.target.value;
     setFields({ ...data });
-    if (event.target.name == "nType" && !regId) {
-      props.getGuestAddRegAmount(event.target.value);
+    
+    if (event.target.name == "lRegType") {
+      data["lRegType"] = event.target.value;
+      props.getRegTypesAmount(data);
     }
+
   };
 
   const _handleSubmit = (event) => {
@@ -183,7 +182,7 @@ export function GuestsAddtionalInformationForm(props) {
 
     if (!fields["sLastName"] || fields["sLastName"] === "") {
       formIsValid = false;
-      errors["sLastName"] = "*Please enter your First Name";
+      errors["sLastName"] = "*Please enter your Last Name";
     }
 
     // if (!fields["dAmount"] || fields["dAmount"] === "") {
@@ -392,7 +391,7 @@ export function GuestsAddtionalInformationForm(props) {
                         className="form-control"
                         placeholder="Reg ID"
                         name="lRegID"
-                        value={fields?.lRegID}
+                        value={sessionStorage.getItem("RegistrantRegId") ? sessionStorage.getItem("RegistrantRegId") : ''}
                         onChange={(event) => handleChange(event)}
                         disabled
                       />
@@ -401,7 +400,7 @@ export function GuestsAddtionalInformationForm(props) {
                       <input
                         type="text"
                         className="form-control"
-                        placeholder="Enter First Name"
+                        placeholder="Enter First Name *"
                         name="sFirstName"
                         value={fields?.sFirstName}
                         onChange={(event) => handleChange(event)}
@@ -418,7 +417,7 @@ export function GuestsAddtionalInformationForm(props) {
                       <input
                         type="text"
                         className="form-control"
-                        placeholder="Enter Last Name"
+                        placeholder="Enter Last Name *"
                         name="sLastName"
                         value={fields?.sLastName}
                         onChange={(event) => handleChange(event)}
@@ -501,12 +500,12 @@ export function GuestsAddtionalInformationForm(props) {
                         className="form-control"
                         placeholder="Reg Amt"
                         name="dRegAmount"
-                        value={fields?.dRegAmount}
+                        value={dRegAmount}
                         onChange={(event) => handleChange(event)}
                       />
                     </div>
 
-                    <div className="col-md-12 col-xs-12">
+                    {/* <div className="col-md-12 col-xs-12">
                       <input
                         type="text"
                         className="form-control"
@@ -526,9 +525,9 @@ export function GuestsAddtionalInformationForm(props) {
                         value={fields?.dTaxesAmt}
                         onChange={(event) => handleChange(event)}
                       />
-                    </div>
+                    </div> */}
 
-                    <div className="col-md-12 col-xs-12">
+                    {/* <div className="col-md-12 col-xs-12">
                       <input
                         type="text"
                         className="form-control"
@@ -537,7 +536,7 @@ export function GuestsAddtionalInformationForm(props) {
                         value={fields?.dServiceFeeAmt}
                         onChange={(event) => handleChange(event)}
                       />
-                    </div>
+                    </div> */}
 
                     <div className="col-md-12 col-xs-12">
                       <input
@@ -571,7 +570,7 @@ export function GuestsAddtionalInformationForm(props) {
                         onChange={(event) => handleChange(event)}
                       />
                     </div>
-
+{/* 
                     <div className="col-md-12 col-xs-12">
                       <input
                         type="text"
@@ -581,7 +580,7 @@ export function GuestsAddtionalInformationForm(props) {
                         value={fields?.dCancellationFee}
                         onChange={(event) => handleChange(event)}
                       />
-                    </div>
+                    </div> */}
 
                     <div className="col-md-12 col-xs-12">
                       <select
@@ -598,7 +597,7 @@ export function GuestsAddtionalInformationForm(props) {
                     </div>
                   </div>
 
-                  {regId && (
+                  {sessionStorage.getItem('RegistrantRegId') && (
                     <div className="row questions">
                       <div className="col-md-12 col-xs-12 titleQuestions">
                         <h4 className="mt-20">Questions</h4>
@@ -616,7 +615,7 @@ export function GuestsAddtionalInformationForm(props) {
                     </div>
                   )}
 
-                  {props.registrantRegID && 
+                  {sessionStorage.getItem('RegistrantRegId') && 
                     <Sessions
                       userId={props.userId}
                       eventId={props.eventId}
