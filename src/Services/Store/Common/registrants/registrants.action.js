@@ -233,6 +233,27 @@ export const addGuestAddditionalInformation = (postData) => {
   };
 };
 
+export const addRegistrantsInformation = (postData) => {
+  return async (dispatch, getState) => {
+    try {
+      const response = await api.post(
+        "api/v1/tslInsertGroupRegistrants",
+        postData,
+        {
+          headers: requestTokenHeader(),
+        }
+      );
+      if (response.data.errorCode === 0) {
+        displaySuccessMessage("dataSaved");        
+      } else {
+        displayErrorMessage("dataSavedError");
+      }
+    } catch (err) {
+      displayErrorMessage(err.name);
+    }
+  };
+};
+
 export const updateGuestAdditionalInformation = (postData) => {
   return async (dispatch) => {
     try {

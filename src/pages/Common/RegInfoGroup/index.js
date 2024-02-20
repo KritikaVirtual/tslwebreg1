@@ -10,7 +10,7 @@ import {
   updateRegistrantInfo,
   getQuestionsRegistrantsList,
   getGuestAdditionalRegistrants,
-  addGuestAddditionalInformation,
+  addRegistrantsInformation,
   updateGuestAdditionalInformation,
   getGuestAdditionalInformationById,
   getAnswerRegistrant,
@@ -154,7 +154,7 @@ export function RegInfoGroup(props) {
   };
 
   const saveGuestAddditionalInformation = (postData) => {
-    dispatch(addGuestAddditionalInformation(postData));
+    dispatch(addRegistrantsInformation(postData));
   };
 
   const updateGuestAddditionalInformation = (postData) => {

@@ -137,7 +137,7 @@ export function GuestsAddtionalInformationForm(props) {
         const postData = {
           lAccountID: props.userId,
           lEventID: props.eventId,
-          lRegID: props.regId,
+          lMainRegID: props.regId,
           sFirstName: fields.sFirstName,
           sLastName: fields.sLastName,
           sTitle: fields.sTitle,
@@ -148,23 +148,9 @@ export function GuestsAddtionalInformationForm(props) {
           nStatus: fields.nStatus,
         };
 
-        if (
-          sessionStorage.getItem("regId") !== undefined &&
-          sessionStorage.getItem("regId") > 0
-        ) {
-          postData["lRegId"] = sessionStorage.getItem("regId");
-          postData["fieldsChecked"] = fieldsChecked;
-          postData["fieldsText"] = fieldsText;
-          props.updateGuestAddditionalInformation(postData);
-        } else {
-          props.saveGuestAddditionalInformation(postData);
-        }
-        props.getRegAmount({
-          lAccountID: props.userId,
-          lEventID: props.eventId,
-          lRegID: props.regId,
-        });
+        props.saveGuestAddditionalInformation(postData);        
         props.showModel(false);
+        
       }
     }
   };
