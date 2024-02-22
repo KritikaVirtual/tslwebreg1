@@ -233,26 +233,6 @@ export const addGuestAddditionalInformation = (postData) => {
   };
 };
 
-export const addRegistrantsInformation = (postData) => {
-  return async (dispatch, getState) => {
-    try {
-      const response = await api.post(
-        "api/v1/tslInsertGroupRegistrants",
-        postData,
-        {
-          headers: requestTokenHeader(),
-        }
-      );
-      if (response.data.errorCode === 0) {
-        displaySuccessMessage("dataSaved");        
-      } else {
-        displayErrorMessage("dataSavedError");
-      }
-    } catch (err) {
-      displayErrorMessage(err.name);
-    }
-  };
-};
 
 export const updateGuestAdditionalInformation = (postData) => {
   return async (dispatch) => {
@@ -1063,3 +1043,117 @@ export const clearRegistrantsSessionsData=()=>{
   }
 }
 
+
+export const addRegistrantsInformation = (postData) => {
+  return async (dispatch, getState) => {
+    try {
+      const response = await api.post(
+        "api/v1/tslInsertGroupRegistrants",
+        postData,
+        {
+          headers: requestTokenHeader(),
+        }
+      );
+      if (response.data.errorCode === 0) {
+        displaySuccessMessage("dataSaved");        
+      } else {
+        displayErrorMessage("dataSavedError");
+      }
+    } catch (err) {
+      displayErrorMessage(err.name);
+    }
+  };
+};
+
+
+export const updateRegistrantsInformation = (postData) => {
+  return async (dispatch) => {
+    try {
+      const response = await api.post(
+        "api/v1/tslUpdateGroupRegistrants",
+        postData,
+        {
+          headers: requestTokenHeader(),
+        }
+      );
+      if (response.data.errorCode === 0) {        
+        displaySuccessMessage("dataSaved");
+        
+      } else {
+        
+        displayErrorMessage("dataSavedError");
+      }
+    } catch (err) {
+      displayErrorMessage(err.name);
+    }
+  };
+};
+
+
+export const getDicountCodeByRegId = (postData) => async (dispatch) => {
+  dispatch({ type: USER_ACTION_TYPE.GET_DICOUNT_CODE_BY_REGID_SUCESS_PENDING });
+  try {
+    const response = await api.get("api/v1/tslGetDicountCodesByRegType", {
+      params: postData,
+      headers: requestTokenHeader(),
+    });
+    if (response.data.errorCode === 0) {
+      const responce = {
+        discountCode: response.data.data,
+        error_code: response.data.errorCode,
+      };
+
+      return dispatch({
+        type: USER_ACTION_TYPE.GET_DICOUNT_CODE_BY_REGID_SUCESS,
+        payload: responce,
+      });
+    } else {
+      const responce = {
+        discountCode: [],
+        error_code: response.data.errorCode,
+      };
+      return dispatch({
+        type: USER_ACTION_TYPE.GET_DICOUNT_CODE_BY_REGID_SUCESS_ERROR,
+        payload: responce,
+      });
+    }
+  } catch (err) {
+    return dispatch({
+      type: USER_ACTION_TYPE.GET_REG_SCODE_PAGE_DESIGN_ERROR,
+    });
+  }
+};
+
+export const getDiscountAmountByID = (postData) => async (dispatch) => {
+  dispatch({ type: USER_ACTION_TYPE.GET_DICOUNT_AMT_BY_ID_PENDING });
+  try {
+    const response = await api.get("api/v1/tslGetDiscountCodesById", {
+      params: postData,
+      headers: requestTokenHeader(),
+    });
+    if (response.data.errorCode === 0) {
+      const responce = {
+        discountAmt: response.data.data,
+        error_code: response.data.errorCode,
+      };
+
+      return dispatch({
+        type: USER_ACTION_TYPE.GET_DICOUNT_AMT_BY_ID_SUCESS,
+        payload: responce,
+      });
+    } else {
+      const responce = {
+        discountAmt: [],
+        error_code: response.data.errorCode,
+      };
+      return dispatch({
+        type: USER_ACTION_TYPE.GET_DICOUNT_AMT_BY_ID_ERROR,
+        payload: responce,
+      });
+    }
+  } catch (err) {
+    return dispatch({
+      type: USER_ACTION_TYPE.GET_REG_SCODE_PAGE_DESIGN_ERROR,
+    });
+  }
+};

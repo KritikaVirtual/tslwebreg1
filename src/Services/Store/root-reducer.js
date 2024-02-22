@@ -23,6 +23,7 @@ import { emailSetupReducer } from "./Common/emailSetup/emailSetup.reducer";
 import { registrantsReducer } from "./Common/registrants/registrants.reducer";
 import { template1Reducer } from "./Common/template1/template1.reducer";
 import { template21Reducer } from "./Common/template21/template21.reducer";
+
 export const rootReducer = combineReducers({
   user: userReducer,
   signup: signUpReducer,

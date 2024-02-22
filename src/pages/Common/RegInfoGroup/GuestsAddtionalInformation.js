@@ -90,13 +90,10 @@ export function GuestsAddtionalInformation(props) {
             {data.sCode}
           </td>
           <td>{data.dRegAmount}</td>
-          <td>{data.dTaxesAmt}</td>
-          <td>{data.dServiceFeeAmt}</td>
           <td>{data.dDiscountID}</td>
           <td>{data.dDiscountID}</td>
           <td>{data.sDiscountExtraText}</td>
           <td>{data.dSpecialDiscountAmt}</td>
-          <td>{data.dCancellationFee}</td>
           <td>
             {data.nStatus == 0
               ? "Active"
@@ -107,6 +104,15 @@ export function GuestsAddtionalInformation(props) {
               : ""}
           </td>
           <td>{ moment(data.dtCreatedOn).format("YYYY-MM-DD") }</td>
+          <td align="center">
+            <button
+              type="button"
+              className="bd-none"
+              onClick={() => _handleEditClick(data)}
+            >
+              <i className="fa fa-fw fa-edit"></i>
+            </button>            
+          </td>
         </tr>
       ));
     } else {
@@ -203,15 +209,13 @@ export function GuestsAddtionalInformation(props) {
                                 <th>Email</th>
                                 <th>Reg Type</th>
                                 <th>Reg Amt</th>
-                                <th>Taxes</th>
-                                <th>Service Fee</th>
                                 <th>Disc Code</th>
                                 <th>Disc Amt</th>
                                 <th>Disc Text</th>
                                 <th>Spec Disc</th>
-                                <th>Cancellation Amt</th>
                                 <th>Status</th>
-                                <th>Reg Date</th>
+                                <th>Reg Date</th>                                
+                                <th>Action</th>
                               </tr>
                             </thead>
                             <tbody>
@@ -269,6 +273,10 @@ export function GuestsAddtionalInformation(props) {
             getRegAmount={(data) => props.getRegAmount(data)}
             clearFields={clearFields}
             getRegTypesAmount={(data)=>props.getRegTypesAmount(data)}
+            discountCodeByRegId={(data) => props.discountCodeByRegId(data)}
+            sendDiscountCodeByRegId={props.sendDiscountCodeByRegId}
+            getDiscountAmtByID = {(discountId) => props.getDiscountAmtByID(discountId)}
+            discountAmtByID = {props.discountAmtByID}
           />
         </ModalBox>
       </div>

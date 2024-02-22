@@ -18,7 +18,8 @@ const INITIAL_STATE = {
   answerGuest: [],
   registrantsInfo: [],
   registrantsSessionsInfo: [],
-  registrantsInfoByID : []
+  registrantsInfoByID : [],
+  discountAmtByID : []
 };
 
 export const registrantsReducer = (state = INITIAL_STATE, action) => {
@@ -444,7 +445,75 @@ export const registrantsReducer = (state = INITIAL_STATE, action) => {
             registrantSessions: [],
           };
 
-        
+       case USER_ACTION_TYPE.GET_REGISTRANTS_SESSIONS_TEMPLATE21_SUCESS:
+        return {
+          ...state,
+          blocking: false,
+          registrantsSessionsInfo: [],
+        };
+
+      case USER_ACTION_TYPE.GET_REGISTRANTS_INFO_BY_ID_TEMPLATE21_PENDING:
+        return {
+          ...state,
+          blocking: true,
+          registrantsInfoByID: [],
+        };
+  
+      case USER_ACTION_TYPE.GET_REGISTRANTS_INFO_BY_ID_TEMPLATE21_SUCESS:
+        return {
+          ...state,
+          blocking: false,
+          registrantsInfoByID: payload,
+        };
+  
+      case USER_ACTION_TYPE.GET_REGISTRANTS_INFO_BY_ID_TEMPLATE21_ERROR:
+        return {
+          ...state,
+          blocking: false,
+          registrantsInfoByID: [],
+        };
+      case USER_ACTION_TYPE.GET_DICOUNT_CODE_BY_REGID_SUCESS:
+        return {
+          ...state,
+          blocking: false,
+          discountCodeByRegId: payload,
+        };
+
+      case USER_ACTION_TYPE.GET_DICOUNT_CODE_BY_REGID_SUCESS_PENDING:
+        return {
+          ...state,
+          blocking: true,
+          discountCodeByRegId: [],
+        };
+  
+  
+      case USER_ACTION_TYPE.GET_DICOUNT_CODE_BY_REGID_SUCESS_ERROR:
+        return {
+          ...state,
+          blocking: false,
+          discountCodeByRegId: [],
+        };
+      
+      case USER_ACTION_TYPE.GET_DICOUNT_AMT_BY_ID_PENDING:
+        return {
+          ...state,
+          blocking: true,
+          discountAmtByID: [],
+        };
+  
+      case USER_ACTION_TYPE.GET_DICOUNT_AMT_BY_ID_SUCESS:
+        return {
+          ...state,
+          blocking: false,
+          discountAmtByID: payload,
+        };
+  
+      case USER_ACTION_TYPE.GET_DICOUNT_AMT_BY_ID_ERROR:
+        return {
+          ...state,
+          blocking: false,
+          discountAmtByID: [],
+        };
     default:
       return state;
   }

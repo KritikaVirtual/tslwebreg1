@@ -12,9 +12,11 @@ export function GuestsAddtionalInformationForm(props) {
     sTitle: "",
     sPhone: "",
     sEmail: "",
-    nType: 0,
-    dAmount: 0,
     nStatus: "",
+    dRegAmount: "",
+    dDiscAmt:"",
+    sDiscountExtraText:"",
+    dSpecialDiscountAmt:""
   });
   const [errors, setErrors] = useState({});
   const [successStatus, setSuccessStatus] = useState(false);
@@ -27,6 +29,7 @@ export function GuestsAddtionalInformationForm(props) {
   const [answersRegistrant, setAnswersRegistrant] = useState([]);
   const [answersRegistrantData, setAnswersRegistrantData] = useState({});
   useEffect(() => {
+   console.log(props.sendDiscountCodeByRegId);
     if (props.sendRegistrantInfoByID) {
       setFields(props.sendRegistrantInfoByID);
     }
@@ -37,16 +40,22 @@ export function GuestsAddtionalInformationForm(props) {
   }, [props.sendRegistrantInfoByID]);
   
   useEffect(() => {
+    let data = fields;
     if(props.regTypesAmountData !== undefined){
-    setdRegAmount(props.regTypesAmountData.dEarlyAmt);
+      data["dRegAmount"] = props.regTypesAmountData.dEarlyAmt;
+      setFields({...data});
     }
-  },[props.regTypesAmountData.dEarlyAmt])
+    if(props.discountAmtByID !== undefined){
+      data["dDiscAmt"] = props.discountAmtByID.dAmount;
+      setFields({...data});
+    }
+  },[props.regTypesAmountData.dEarlyAmt, props.discountAmtByID.dAmount])
 
   useEffect(() => {
     if (
       props.registrantRegID !== undefined &&
       props.registrantRegID > 0
-    ) {
+    ) { 
       setRegId(props.registrantRegID);
       props.getRegistrantInfoByID(props.registrantRegID)
     }
@@ -55,7 +64,7 @@ export function GuestsAddtionalInformationForm(props) {
     // }
     
   }, [props.registrantRegID]);
-
+  
   useEffect(()=>{
     if(props.answersGuestData){
       const answerRegData = props.answersGuestData
@@ -121,12 +130,18 @@ export function GuestsAddtionalInformationForm(props) {
   const handleChange = (event) => {
     let data = fields;
     data[event.target.name] = event.target.value;
-    setFields({ ...data });
-    
+
     if (event.target.name == "lRegType") {
       data["lRegType"] = event.target.value;
       props.getRegTypesAmount(data);
+      props.discountCodeByRegId(event.target.value);
     }
+    if (event.target.name == "lDiscountID") {
+      data["lDiscountID"] = event.target.value;
+      props.getDiscountAmtByID(event.target.value)
+    }
+
+    setFields({ ...data });
 
   };
 
@@ -143,13 +158,21 @@ export function GuestsAddtionalInformationForm(props) {
           sTitle: fields.sTitle,
           sPhone: fields.sPhone,
           sEmail: fields.sEmail,
-          nType: fields.nType,
-          dAmount: fields.dAmount,
+          lRegType: fields.lRegType,       
+          dRegAmount: fields.dRegAmount,   
+          dDiscAmt: fields.dDiscAmt,
+          sDiscountExtraText: fields.sDiscountExtraText,
+          dSpecialDiscountAmt: fields.dSpecialDiscountAmt,  
           nStatus: fields.nStatus,
         };
 
-        props.saveGuestAddditionalInformation(postData);        
-        props.showModel(false);
+        if(sessionStorage.getItem("RegistrantRegId")){
+          postData['lRegID'] = sessionStorage.getItem("RegistrantRegId");
+          props.updateGuestAddditionalInformation(postData);   
+        }else{          
+         props.saveGuestAddditionalInformation(postData);    
+        }    
+         props.showModel(false);
         
       }
     }
@@ -341,16 +364,21 @@ export function GuestsAddtionalInformationForm(props) {
       </>
     );
   };
-
-  const callRegTypesData = (regTypeData) => {
-    if (regTypeData && regTypeData.length > 0) {
-      return regTypeData.map((data, index) => (
-        <>
+  
+  const callDataOnLoad = (data, type) => {
+    var pushData = []
+    pushData.push(<option value="0">{type}</option>)
+    if (data && data.length > 0) {
+      data.map((data, index) => (
+        pushData.push(          
           <option value={data.value}>{data.label}</option>
-        </>
+        )
       ));
     }
+    return pushData
   };
+
+  
 
   return (
     <>
@@ -466,7 +494,7 @@ export function GuestsAddtionalInformationForm(props) {
                         value={fields?.lRegType}
                       >
                         {props.regTypesData ? (
-                          callRegTypesData(props.regTypesData)
+                          callDataOnLoad(props.regTypesData,'Select Reg Type')
                         ) : (
                           <option value="0">Select Reg Type</option>
                         )}
@@ -486,7 +514,7 @@ export function GuestsAddtionalInformationForm(props) {
                         className="form-control"
                         placeholder="Reg Amt"
                         name="dRegAmount"
-                        value={dRegAmount}
+                        value={fields?.dRegAmount}
                         onChange={(event) => handleChange(event)}
                       />
                     </div>
@@ -523,6 +551,23 @@ export function GuestsAddtionalInformationForm(props) {
                         onChange={(event) => handleChange(event)}
                       />
                     </div> */}
+
+                    <div className="col-md-12 col-xs-12">
+                      
+                      <select
+                        id="lDiscountID"
+                        className="form-control"
+                        name="lDiscountID"
+                        onChange={(event) => handleChange(event)}
+                        value={fields?.lDiscountID}
+                      >
+                        {props.sendDiscountCodeByRegId ? (
+                          callDataOnLoad(props.sendDiscountCodeByRegId,'Select Discount Code')
+                        ) : (
+                          <option value="0">Select Discount Code</option>
+                        )}
+                      </select>
+                    </div>
 
                     <div className="col-md-12 col-xs-12">
                       <input

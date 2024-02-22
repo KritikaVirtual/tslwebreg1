@@ -30,6 +30,7 @@ import {
   clearAnswerData,
   getAnswerGuest,
   clearRegistrantsSessionsData,
+  getRegistrantsGroupsMainRegIdExist,
 } from "../../../Services/Store/Common/registrants/registrants.action";
 import {
   getSCodeRegCategory,
@@ -126,6 +127,7 @@ export function RegInfo(props) {
         dispatch(getRegAmount({ lAccountID, lEventID, lRegID }));
         dispatch(getRegistrant({ lAccountID, lEventID, lRegID }));
         dispatch(getAnswerRegistrant({ lAccountID, lEventID, lRegID }));
+        dispatch(getRegistrantsGroupsMainRegIdExist({ lAccountID, lEventID, lRegID }))
       }
     }
     return () => {
@@ -134,6 +136,13 @@ export function RegInfo(props) {
       dispatch(clearRegistrantsSessionsData());
     };
   }, []);
+
+  useEffect(()=>{
+    console.log('registrantsData.registrantMainRegIDExist.length',registrantsData.registrantMainRegIDExist)
+    if(registrantsData.registrantMainRegIDExist && registrantsData.registrantMainRegIDExist.result !== undefined && registrantsData.registrantMainRegIDExist.result.length > 0){
+      navigate('../regInfoGroup')
+    }
+  },[registrantsData.registrantMainRegIDExist])
 
   const saveRegInfo = (data) => {
     if (userId && eventId) {
