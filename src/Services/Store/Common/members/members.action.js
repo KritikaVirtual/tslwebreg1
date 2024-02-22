@@ -1,5 +1,10 @@
+import axios from "axios";
 import { USER_ACTION_TYPE } from "../../../Constant/user.constants";
-import { requestTokenHeader } from "../../../Helpers/helper";
+import {
+  displayErrorMessage,
+  displaySuccessMessage,
+  requestTokenHeader,
+} from "../../../Helpers/helper";
 import api from "../../../Axios/index";
 
 export const getMemberList = (postData) => async (dispatch) => {
@@ -34,3 +39,43 @@ export const getMemberList = (postData) => async (dispatch) => {
     return dispatch({ type: USER_ACTION_TYPE.SET_MEMBER_LIST_ERROR });
   }
 };
+
+
+export const addMemberInfo = (postData) =>  {
+  return async () => {
+    try {
+      const response = await api.post("api/v1/tslAddMembers", postData, {
+        headers: requestTokenHeader(),
+      });
+     
+      if (response.data.errorCode === 0) {
+        displaySuccessMessage("dataSaved");
+        
+      } else {
+        displayErrorMessage("dataSavedError");
+      }
+    } catch (err) {
+      displayErrorMessage(err.name);
+    }
+}
+}
+
+
+export const editMemberInfo = (postData) =>  {
+  return async () => {
+    try {
+      const response = await api.post("api/v1/tslUpdateMember", postData, {
+        headers: requestTokenHeader(),
+      });
+     
+      if (response.data.errorCode === 0) {
+        displaySuccessMessage("dataSaved");
+        
+      } else {
+        displayErrorMessage("dataSavedError");
+      }
+    } catch (err) {
+      displayErrorMessage(err.name);
+    }
+}
+}

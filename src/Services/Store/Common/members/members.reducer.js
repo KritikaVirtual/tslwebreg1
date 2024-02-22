@@ -25,6 +25,23 @@ export const memberListReducer = (state = INITIAL_STATE, action) => {
         blocking: true,
         memberList: [],
       };
+      case USER_ACTION_TYPE.Add_MEMBER_PENDING:
+        return {
+          blocking: true,
+          memberList: [],
+        };
+  
+      case USER_ACTION_TYPE.Add_MEMBER_SUCESS:
+        return {
+          blocking: false,
+          memberList: payload,
+        };
+  
+      case USER_ACTION_TYPE.Add_MEMBER_ERROR:
+        return {
+          blocking: true,
+          memberList: [],
+        };
 
     default:
       return state;
