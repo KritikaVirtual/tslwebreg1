@@ -14,9 +14,10 @@ export function GuestsAddtionalInformationForm(props) {
     sEmail: "",
     nStatus: "",
     dRegAmount: "",
-    dDiscAmt:"",
+    dAmount:"",
     sDiscountExtraText:"",
-    dSpecialDiscountAmt:""
+    dSpecialDiscountAmt:"",
+    lDiscountID:0
   });
   const [errors, setErrors] = useState({});
   const [successStatus, setSuccessStatus] = useState(false);
@@ -29,14 +30,12 @@ export function GuestsAddtionalInformationForm(props) {
   const [answersRegistrant, setAnswersRegistrant] = useState([]);
   const [answersRegistrantData, setAnswersRegistrantData] = useState({});
   useEffect(() => {
-   console.log(props.sendDiscountCodeByRegId);
     if (props.sendRegistrantInfoByID) {
       setFields(props.sendRegistrantInfoByID);
     }
     if (props.clearFields) {
       setFields({});
     }
-    
   }, [props.sendRegistrantInfoByID]);
   
   useEffect(() => {
@@ -45,8 +44,9 @@ export function GuestsAddtionalInformationForm(props) {
       data["dRegAmount"] = props.regTypesAmountData.dEarlyAmt;
       setFields({...data});
     }
+    console.log(props.discountAmtByID);
     if(props.discountAmtByID !== undefined){
-      data["dDiscAmt"] = props.discountAmtByID.dAmount;
+      data["dAmount"] = props.discountAmtByID.dAmount;
       setFields({...data});
     }
   },[props.regTypesAmountData.dEarlyAmt, props.discountAmtByID.dAmount])
@@ -160,11 +160,13 @@ export function GuestsAddtionalInformationForm(props) {
           sEmail: fields.sEmail,
           lRegType: fields.lRegType,       
           dRegAmount: fields.dRegAmount,   
-          dDiscAmt: fields.dDiscAmt,
+          dAmount: fields.dAmount,
           sDiscountExtraText: fields.sDiscountExtraText,
           dSpecialDiscountAmt: fields.dSpecialDiscountAmt,  
           nStatus: fields.nStatus,
+          lDiscountID: fields.lDiscountID
         };
+
 
         if(sessionStorage.getItem("RegistrantRegId")){
           postData['lRegID'] = sessionStorage.getItem("RegistrantRegId");
@@ -574,8 +576,8 @@ export function GuestsAddtionalInformationForm(props) {
                         type="text"
                         className="form-control"
                         placeholder="Disc Amt"
-                        name="dDiscAmt"
-                        value={fields?.dDiscAmt}
+                        name="dAmount"
+                        value={fields?.dAmount}
                         onChange={(event) => handleChange(event)}
                       />
                     </div>

@@ -90,8 +90,8 @@ export function GuestsAddtionalInformation(props) {
             {data.sCode}
           </td>
           <td>{data.dRegAmount}</td>
-          <td>{data.dDiscountID}</td>
-          <td>{data.dDiscountID}</td>
+          <td>{data.discountCode}</td>
+          <td>{data.discountAmount}</td>
           <td>{data.sDiscountExtraText}</td>
           <td>{data.dSpecialDiscountAmt}</td>
           <td>
