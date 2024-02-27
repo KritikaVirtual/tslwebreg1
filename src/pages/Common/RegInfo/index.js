@@ -31,6 +31,7 @@ import {
   getAnswerGuest,
   clearRegistrantsSessionsData,
   getRegistrantsGroupsMainRegIdExist,
+  clearRegistrantsMainRegIdExist,
 } from "../../../Services/Store/Common/registrants/registrants.action";
 import {
   getSCodeRegCategory,
@@ -134,13 +135,16 @@ export function RegInfo(props) {
       dispatch(clearRegistrantData());
       dispatch(clearAnswerData());
       dispatch(clearRegistrantsSessionsData());
+      dispatch(clearRegistrantsMainRegIdExist());
     };
   }, []);
 
   useEffect(()=>{
     console.log('registrantsData.registrantMainRegIDExist.length',registrantsData.registrantMainRegIDExist)
-    if(registrantsData.registrantMainRegIDExist && registrantsData.registrantMainRegIDExist.result !== undefined && registrantsData.registrantMainRegIDExist.result.length > 0){
-      navigate('../regInfoGroup')
+    if(sessionStorage.getItem('regId')){
+      if(registrantsData.registrantMainRegIDExist && registrantsData.registrantMainRegIDExist.result !== undefined && registrantsData.registrantMainRegIDExist.result.length > 0){
+        navigate('../regInfoGroup')
+      }
     }
   },[registrantsData.registrantMainRegIDExist])
 

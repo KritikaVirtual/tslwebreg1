@@ -1,0 +1,141 @@
+.pageHeader {
+    text-align: center;
+    margin: 15px;
+}
+.pageFooter {
+    text-align: center;
+}
+.reg-amount h4 {
+    display: inline-block;
+    margin: 15px;
+}
+.form-heading h4 {
+    margin-bottom: 20px;
+    margin-top: 40px;
+    background-color: #0e446d;
+    padding: 10px 10px;
+    color: #fff;
+    font-size: 18px;
+}
+.stepsTab {
+    max-width: 700px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.reg-newletter .btn, .reg-newletter ul li input {
+    border-radius: 0px !important;
+    height: 40px;
+  }
+  .form__item.undefined .ant-select-selector { border: 0px !important; } 
+  .reg-steps .ant-input { border-radius: 0px; }
+
+  .stepsTab {
+        margin: 0 auto;
+        max-width: 600px;
+        width: 100%;
+        background-color: #ffffff;
+        padding: 50px;
+        box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+    }
+
+    .reg-login .form-content input, .reg-login .form-content select {
+        margin-bottom: 0px;
+        border: 1px solid #ccc;
+    }
+    .reg-steps .table {
+        border: 0px;
+    }
+
+    .stepsTab label {
+        font-size: 14px;
+    }
+
+    .textHeader p {
+        padding-left: 10px;
+        font-size: 15px;
+    }
+
+    .textFooter p {
+        padding-left: 10px;
+        font-size: 15px;
+    }
+
+    :where(.css-dev-only-do-not-override-1ck3jst).ant-select:not(.ant-select-customize-input) .ant-select-selector{
+        border-radius: 0px;
+    }
+
+    .ant-select {
+        border-radius: 0px;
+    }
+
+    .reg-steps .table-bordered td {
+        padding: 15px 10px;
+    }
+
+    .stepsTab.stepsform-wrap label {
+        font-size: 14px;
+        max-width: 131px;
+        width: 100%;
+    }
+    .stepsTab.stepsform-wrap .col-md-12.col-xs-12 {
+        display: flex;
+    }
+    .paymentType {
+        display: flex;
+        justify-content: center;
+        align-items: start;
+        margin-bottom: 10px;
+    }
+    .paymentType input {
+        max-width: 15px;
+        width: 100%;
+        margin-top: 4px;
+        margin-right: 5px;
+    }
+    .paymentType label {
+        max-width: inherit !important;
+        width: initial !important;
+    }
+    .stepsTab.stepsform-wrap.reviewTab .col-md-12.col-xs-12 {
+        display: initial;
+    }
+    .reviewTab h4 {
+        font-size: 18px;
+    }
+    .stepsTab.stepsform-wrap.reviewTab{
+        max-width: 840px;
+    }
+    ul.regTypeDetail {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    ul.regTypeDetail li {
+        list-style: none;
+    }
+    ul.regTypeDetail li:first-child{
+        margin-right: 55px;
+    }
+    h5.addReg{
+        text-align: center;
+    }
+
+    .pageFooter {
+        background-color: #0e446d;
+        color: #fff;
+        padding: 5px;
+        margin-top: 10px;
+    }
+    .pageFooter p {
+        margin-bottom:0px; 
+    }
+    .form__item .ant-btn { background-color: #0e446d;
+        border-radius: 0px;
+        margin-top: 10px;
+        border: 1px solid #0e446d; }
+    @media only screen and (max-width: 991px) { 
+    .stepsTab {
+        padding: 20px;
+    }
+    }

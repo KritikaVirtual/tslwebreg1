@@ -102,7 +102,7 @@ export function SessionsForm(props) {
     setFields({ ...data });
   };
 
-  const _handleSubmit = (event) => {
+  const _handleSession = (event) => {
     event.preventDefault();
     if (_validateForm()) {
       if (props.userId && props.eventId && props.regId) {
@@ -182,7 +182,7 @@ export function SessionsForm(props) {
           <div className="row login-wrap-new">
             <div className="col-md-12 col-xs-12">
               <div className="form-content">
-                <form onSubmit={(event) => _handleSubmit(event)}>
+                <form onSubmit={(event) => _handleSession(event)}>
                   <div className="row">
                     <div className="col-12 ">
                       {successStatus ? (
@@ -275,9 +275,7 @@ export function SessionsForm(props) {
                       </select>
                     </div>
                   </div>
-                  <button type="submit" className="btn">
-                    Save
-                  </button>
+                  <input type="button" className="btn" value="Save" />
                 </form>
               </div>
             </div>

@@ -7,7 +7,7 @@ export function UserForm(props) {
     const [errors, setErrors] = useState({});
     const [successStatus,setSuccessStatus] = useState(false);
     const [applyCheck] = useState(false);
-    
+    console.log(fields);
     const handleChange = (event) => {
         let data = fields;
         data[event.target.name] = event.target.value;

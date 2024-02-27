@@ -1,0 +1,350 @@
+.dashboard-content {
+    position: absolute;
+    top: 48%;
+    left: 50%;
+    transform: translate(-30%, -50%);
+}
+.dashboard-content  .h3{font-size:36px;}
+.product-img{width:3rem;}
+.topbar .dropdown-list .dropdown-header {
+    background-color: #d1d3e2;
+    border: 1px solid #d1d3e2;
+}
+.text-primary {
+    color: #311b0c!important;
+}
+.page-item.active .page-link {
+       background-color: #eaecf4;
+    border-color: #eaecf4;
+    color: #000;
+}
+.text-white-50 {
+        color: rgba(0, 0, 0, 0.66)!important;
+}
+.page-link {
+    color: #8c6b55;
+}
+.dropdown-item.active, .dropdown-item:active {
+    color: #fff;
+    text-decoration: none;
+    background-color: #c29e85;
+}
+.rotate-n-15 {
+    margin-left: -67px;
+	transform: none;
+}
+.btn-link {
+    font-weight: 400;
+    color: #785945;
+    text-decoration: none;
+}
+.btn-link:hover {
+    color: #785945;
+    text-decoration: underline;
+}
+.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle {
+    color: #fff;
+    background-color: #785945;
+    border-color: #785945;
+}
+.tabbable-responsive {
+  display: block;
+  min-width: 100%;
+  overflow-x: auto;
+  margin: 0px -20px -13px -20px;
+}
+.tabbable {
+  min-width: 100%;
+}
+.tabbable .nav-tabs {
+  white-space: nowrap;
+  display: inline-block;
+  min-width: 100%;
+  padding: 0px 21px;
+}
+.tabbable .nav-tabs .nav-item {
+  display: inline-block;
+}
+.tabbable .nav-tabs .nav-item .nav-link {
+  display: inline-block;
+}
+small {
+  font-size: 12px;
+}
+.card {
+  box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.15);
+}
+a {
+  color: #311b0c;
+}
+a:hover {
+  color: #311b0c;
+}
+.text-dark {
+  text-decoration: none !important;
+}
+.elmahio-ad {
+  background: #fff;
+  box-shadow: 0px 0px 0px 1px #ddd;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.elmahio-ad .logo {
+  background: #0da58e;
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  line-height: 52px;
+}
+.elmahio-ad .logo img {
+  width: 50px;
+}
+.elmahio-ad .motto {
+  width: 180px;
+  font-size: 12px;
+  font-weight: bolder;
+  padding: 12px;
+}
+form.user .btn-user {
+    font-size: .8rem;
+    border-radius: 10rem;
+    padding: .75rem 3rem;
+}
+.card-header {
+   background-color: #f8f9fc;
+    
+}
+.dashboard-header {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 20px;
+    margin-bottom: 40px;
+	margin-top: 10px;
+}
+.dashboard-header ul li select {
+    border: 0px;
+    font-size: 14px;
+}
+.dashboard-header ul li {
+    list-style: none;
+}
+.dashboard-header .page-name-wrap .fa-house {
+    display: inline-block;
+    color: #007bff;
+    font-size: 18px;
+    padding-right: 10px;
+}
+.dashboard-header .page-name-wrap .fa-home {padding: 5px; font-size: 24px; color: #007bff;}
+.dashboard-header .page-name-wrap { display: flex;
+    align-items: baseline;  }    
+    .dashboard-header .page-name-wrap h4 {
+        display: inline-block;
+        font-size: 20px;
+        padding-left: 5px;
+        font-weight: 500;
+    }
+    .card-body {
+        padding: 0px;
+    }
+    .table-responsive {
+        padding: 15px;
+    }
+.dashboard-header .row {
+    width: 100%;
+    align-items: baseline;
+    padding: 10px 20px;
+}
+.dashboard-header ul {
+    margin-bottom: 0px;
+    padding-left: 0px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+.sticky-footer .powered p { text-align:right; font-size:13px; }
+.sticky-footer p { margin-bottom:0px; }
+#wrapper #content-wrapper {
+    padding: 15px;
+}
+.dashboard-header .container-fluid {     justify-content: center; }	
+
+.dashboard-add-account .fa-plus { color:#fff !important; margin-left:5px; font-size:14px; }
+.dashboard-table-format .card {
+    box-shadow: inherit; 
+    border: none; 
+  }
+  .table .fa-pen-to-square {     background: #ccc;
+      padding: 4px;
+      color: #444; }	
+      
+  .table .fa-trash {
+    color: #fff;
+    background-color: #dc3545;
+    padding: 3px;
+    font-size: 13px;
+}
+
+  .dashboard-add-account .btn:hover .fa-plus {
+  color: #ffb82d !important; }
+  .search-wrap {
+      border-radius: 50px !important;
+      padding: 12px !important;
+      border: 1px solid #ccc !important;
+      font-size: 14px !important;
+  }
+  
+  
+  
+      /*******************************
+  * Does not work properly if "in" is added after "collapse".
+  * Get free snippets on bootpen.com
+  *******************************/
+  .panel-group .panel {
+      border-radius: 20px;
+      box-shadow: none;
+      border-color: #EEEEEE;
+      margin-bottom: 20px;
+      background-color:#fff; 
+  }
+  .panel-default > .panel-heading {
+      padding: 0;
+      border-radius: 20px;
+      color: #212121;
+      background-color: #ffffff;
+      border-color: #EEEEEE;
+      padding: 10px;
+  }
+  
+  .panel-title {
+      font-size: 14px;
+      background-color: #007bff;
+      border-radius: 22px;
+      color: #fff;
+      margin-bottom: 0px;
+  }
+  
+  .panel-title > a {
+      display: block;
+      padding: 20px;
+      text-decoration: none;
+      color: #fff;
+  }
+  
+      .more-less {
+          float: right;
+          color: #212121;
+      }
+  
+      .panel-default > .panel-heading + .panel-collapse > .panel-body {
+          border-top-color: #EEEEEE;
+      }
+  
+  /* ----- v CAN BE DELETED v ----- */
+  
+  
+  .demo {
+      padding-top: 60px;
+      padding-bottom: 60px;
+  }
+  
+  /* ----- accordion css start here ----- */
+.accordion-item { padding: 10px;
+    margin-bottom: 10px;
+    border: 0px;
+    border-radius: 10px; }
+.accordion-item .accordion-button { background-color: #007bff;
+        border-radius: 15px !important;
+        color: #fff; }
+ .table-striped tbody tr:hover {
+            background-color: #e5f1ff;
+        }
+ .dataTables_filter .form-control { border-radius: 50px;
+    font-size: 14px; }
+
+ .table-bordered>:not(caption)>* {
+            border-width: inherit;
+        }
+        
+        .table-responsive>.table-bordered {
+            border: 0;
+            margin-top: 20px;
+        }
+        .accordion-body {
+            padding: 0px;
+        }
+
+    .fa-edit {
+        color: #fff;
+        margin-right: 3px;
+        background-color: #007bff;
+        padding: 3px;
+        font-size: 13px;
+    }
+    .dataTables_length ul { display: flex; padding-left:0px; align-items: baseline; }
+    .dataTables_length ul li { list-style:none; padding-right: 5px; ;}
+    .dataTables_length ul li:nth-child(2) {  max-width: 65px; width: 100%; }
+    .user_search{text-align: right;}
+    .btn {
+        border-radius: 50px !important;
+        background-color: #ffb82d !important;
+        color: #fff !important;
+        font-size: 14px !important;
+        font-weight: 600 !important;
+        font-family: poppins !important;
+        padding: 10px 20px !important;
+        border: 1px solid #ffb82d !important;
+    }
+    .btn:hover { background-color: transparent !important; color:#ffb82d !important;}
+
+    .accordion-formwrap h4 { margin-bottom:20px; }
+.accordion-formwrap { padding:20px 50px;  }
+.accordion-formwrap .form-control {
+    border: 0px;
+    background-color: #efefef;
+    border-radius: 0px;
+    margin-bottom: 15px;
+} 
+.accordion-formwrap .btn {  border-radius:0px; width:100%; text-align:center; color:#fff; font-family:poppins; font-size:14px; margin-top:20px; }
+.accordion-formwrap input::placeholder { font-size:12px; color:#8a8a8a;     font-family: poppins; }
+.accordion-formwrap select { font-size:12px; color:#8a8a8a;     font-family: poppins; }
+.accordion-formwrap option{ font-size:12px; color:#8a8a8a;     font-family: poppins; }
+.panel-group .panel {
+    border-radius: 20px;
+    box-shadow: none;
+    border-color: #EEEEEE;
+    margin-bottom: 20px;
+	background-color:#fff; 
+}
+.panel-default > .panel-heading {
+    padding: 0;
+    border-radius: 20px;
+    color: #212121;
+    background-color: #ffffff;
+    border-color: #EEEEEE;
+    padding: 10px;
+}
+
+.panel-title {
+    font-size: 14px;
+    background-color: #007bff;
+    border-radius: 22px;
+    color: #fff;
+    margin-bottom: 0px;
+}
+
+.panel-title > a {
+    display: block;
+    padding: 20px;
+    text-decoration: none;
+    color: #fff;
+}
+.more-less {
+    float: right;
+    color: #212121;
+}
+
+.panel-default > .panel-heading + .panel-collapse > .panel-body {
+    border-top-color: #EEEEEE;
+}
+.errorMsg.text-danger {color: #fff !important;}
+.modal-header{ border-bottom:0px !important;}

@@ -48,7 +48,6 @@ export const addEventInfo = (postData) => {
       });
       if (response.data.errorCode === 0) {
         const resultOutput = getState().eventList.eventList.result;
-        // console.log('resultOutput',response.data.result);
         resultOutput.unshift(response.data.result);
 
         const eventList = {};
@@ -75,10 +74,9 @@ export const addEventInfo = (postData) => {
         //   sessionStorage.removeItem('eventName')
         // }
         // console.log('response',response)
-        sessionStorage.set('eventId',response.data.result['insertId'])
-        sessionStorage.set('eventName',response.data.result['sName'])
+        sessionStorage.set("eventId", response.data.result["insertId"]);
+        sessionStorage.set("eventName", response.data.result["sName"]);
         // console.log('response.data.result.sName',response.data.result.sName)
-
       } else {
         displayErrorMessage("eventAddedError");
         const responce = {

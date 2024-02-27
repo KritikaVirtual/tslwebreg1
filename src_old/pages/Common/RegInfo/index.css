@@ -1,0 +1,79 @@
+.questions .questionsContent {
+    display: flex;
+    width: 100%;
+    margin: 15px;
+}
+
+.questions .questionsContent td {
+    padding-right: 20px;
+}
+
+.titleQuestions .accordion-button:not(.collapsed)::after {
+    display: none;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.summary-table {
+    max-width: 580px;
+    width: 100%;
+}
+
+.summary-table input {
+    overflow: visible;
+    border: 1px solid #ccc;
+    max-width: 120px;
+    width: 100%;
+}
+
+.summary-table ul {
+    display: flex;
+    padding-left: 0px;
+    margin-bottom: 0px;
+}
+
+.summary-table ul li {
+    list-style: none;
+    padding-right: 5px;
+}
+
+.summary-table ul li select {
+    border: 1px solid #ccc;
+}
+
+.summary-btn {
+    margin-bottom: 50px;
+}
+
+.inline-block {
+    display: inline-block;
+}
+.modal-content {min-width: 670px;}
+
+.invitation-wrap.regInfo {
+    margin-top: 20px;
+}
+
+.questionsContent td:first-child {
+    max-width: 150px;
+    width: 100%;
+}
+
+.questionsContent td:nth-child(2) {
+    display: flex;
+    align-items: baseline;
+}
+
+.questionsContent label {
+    margin-right: 10px;
+}
+
+.questionsContent input {
+    margin-right: 4px;
+}
+
+.backRegList {
+    margin: 15px;
+}

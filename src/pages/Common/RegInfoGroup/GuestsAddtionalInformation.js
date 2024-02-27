@@ -164,7 +164,7 @@ export function GuestsAddtionalInformation(props) {
                               </div>
                             </div>
 
-                            <div className="col-sm-12 col-md-6 user_search">
+                            {/* <div className="col-sm-12 col-md-6 user_search">
                               <div className="row fillter-wrap">
                                 <ul>
                                   <li>
@@ -195,7 +195,7 @@ export function GuestsAddtionalInformation(props) {
                                   </li>
                                 </ul>
                               </div>
-                            </div>
+                            </div> */}
                           </div>
 
                           <table className="table table-striped table-bordered">

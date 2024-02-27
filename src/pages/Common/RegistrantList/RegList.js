@@ -32,9 +32,13 @@ const RegList = (props) => {
   const _handleEditClick = (data) => {
     if(data.lRegID){
       sessionStorage.setItem('regId',data.lRegID)
-      navigate('/regInfo')
+      if(data.lRegisteredAs == '-10'){
+        navigate('/regInfoGroup')
+      }else{
+        navigate('/regInfo')
+      }
     }
-  };
+  }
 
   useEffect(()=>{
     if(props.registrantsListData && props.additionalRegistrantsListData){

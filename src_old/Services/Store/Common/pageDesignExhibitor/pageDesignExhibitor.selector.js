@@ -1,0 +1,1 @@
+export const pageDesignExhibitorSelector = (state) => state.pageDesignExhibitor;

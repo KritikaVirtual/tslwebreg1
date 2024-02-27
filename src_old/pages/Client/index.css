@@ -1,0 +1,130 @@
+.admin-login {
+  margin-top: 100px;
+}
+.admin-logo img { max-width: 110px; width:100%; }
+.admin-image {
+  position: relative;
+    padding: 0px;
+}
+.admin-logo {
+  position: absolute;
+  left: 30px;
+  top: 30px;
+}
+.text-danger {
+  margin-bottom: 15px;
+  background-color: #cf0e0e;
+  color: #fff !important;
+  padding: 1px 5px;
+  font-size: 11px;
+  border: 1px solid #cf0e0e;
+  font-family: 'Poppins';
+}
+
+
+.row.login-wrap { 
+max-width: 800px;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px rgb(0 0 0 / 20%);
+  margin: 0 auto;
+}
+
+.admin-login .form-control {
+  border: 0px;
+  background-color: #f6f6f6;
+  border-radius: 0px;
+  margin-bottom: 15px;
+}
+
+.admin-login .btn { background-color:#2c3c7a; border:1px solid #2c3c7a; border-radius:0px; width:100%; text-align:center; color:#fff; font-family:poppins; font-size:14px; margin-top:20px; }
+.admin-login h4 { color:#0a3d64; text-align:center; font-size:24px; font-weight:400; margin-bottom:30px; }
+.admin-login .form-content { padding-top:80px; }
+.admin-login input::placeholder { font-size:12px; color:#c4c4c4;     font-family: poppins; }
+.admin-login .btn:hover { background-color:#fff; color:#2c3c7a;  }
+.Sign-up-wrap  {
+  margin-top: 100px;
+
+}
+.admin-login .btn.reg-btn { background-color: #f9b733; border:1px solid #f9b733; }
+.admin-login .btn.reg-btn:hover { background-color: #fff; color:#f9b733;  }
+.Sign-up-wrap .row.login-wrap { 
+max-width: 400px;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px rgb(0 0 0 / 20%);
+  margin: 0 auto;
+padding:50px 30px; 
+border:1px solid #ffc555; 
+}
+.Sign-up-wrap h4 { color:#0a3d64; text-align:center; font-size:24px; font-weight:400; margin-bottom:30px; font-family:poppins; }
+.Sign-up-wrap .form-control {
+  border: 0px;
+  background-color: #f6f6f6;
+  border-radius: 0px;
+  margin-bottom: 15px;
+}
+.Sign-up-wrap .btn { background-color:#2c3c7a; border-radius:0px; width:100%; text-align:center; color:#fff; font-family:poppins; font-size:14px; margin-top:20px; }
+.Sign-up-wrap input::placeholder { font-size:12px; color:#c4c4c4;     font-family: poppins; }
+
+
+/* Create an Account */
+.Sign-up-wrap  {
+  margin-top: 100px;
+
+}
+.Sign-up-wrap .row.login-wrap { 
+max-width: 400px;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px rgb(0 0 0 / 20%);
+  margin: 0 auto;
+padding:50px 30px; 
+border:1px solid #ffc555; 
+}
+.Sign-up-wrap h4 { color:#0a3d64; text-align:center; font-size:24px; font-weight:400; margin-bottom:30px; font-family:poppins; }
+.Sign-up-wrap .form-control {
+  border: 0px;
+  background-color: #f6f6f6;
+  border-radius: 0px;
+  margin-bottom: 15px;
+}
+.Sign-up-wrap .btn { background-color:#2c3c7a; border-radius:0px; width:100%; text-align:center; color:#fff; font-family:poppins; font-size:14px; margin-top:20px; }
+.Sign-up-wrap input::placeholder { font-size:12px; color:#c4c4c4;     font-family: poppins; }
+
+/* Create an Account */
+.invitation-wrap  {
+  margin-bottom: 43px;
+  padding:0px 30px;
+}
+.invitation-wrap .row.login-wrap { 
+max-width: 400px;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px rgb(0 0 0 / 20%);
+  margin: 0 auto;
+padding:50px 30px; 
+border:1px solid #ffc555; 
+}
+.invitation-wrap h4 { color:#0a3d64; text-align:center; font-size:24px; font-weight:400; margin-bottom:30px; font-family:poppins; }
+.invitation-wrap .form-control {
+  border: 0px;
+  background-color: #f6f6f6;
+  border-radius: 0px;
+  margin-bottom: 15px;
+}
+.invitation-wrap .btn { background-color:#2c3c7a; border-radius:0px; width:100%; text-align:center; color:#fff; font-family:poppins; font-size:14px; margin-top:20px; }
+.invitation-wrap input::placeholder { font-size:12px; color:#c4c4c4;     font-family: poppins; }
+
+.modal-header{ border-bottom:0px !important;}
+
+.modal-content {
+  max-width: 400px;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px rgb(0 0 0 / 20%);
+  margin: 0 auto;
+  padding:0px;
+  border: 1px solid #ffc555;
+  border-radius: 0px;
+}

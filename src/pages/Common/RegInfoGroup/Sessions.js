@@ -5,6 +5,7 @@ import { SessionsForm } from "./SessionsForm.js";
 
 export function Sessions(props) {
   const [showModel, setShowModel] = useState(false);
+  const [showSessionModel, setShowSessionModel] = useState(false);
   const [fields, setFields] = useState({});
   const [errors, setErrors] = useState({});
   const [successStatus, setSuccessStatus] = useState(false);
@@ -34,8 +35,8 @@ export function Sessions(props) {
     ) {
       sessionStorage.removeItem("regSessionId");
     }
-    setClearFields(true);
-    setShowModel(true);
+   setClearFields(true);
+   setShowSessionModel(true);
     props.clearSessionPrice();
   };
 
@@ -123,12 +124,13 @@ export function Sessions(props) {
                             <div className="add-buttons">
                               <ul>
                                 <li>
-                                  {/* <button
+                                   <input
+                                    type="button"
+                                    value="Add Sessions"
                                     className="d-none d-sm-inline-block btn"
                                     onClick={(event) => handleAddClick(event)}
-                                  >
-                                    Add Sessions
-                                  </button> */}
+                                  />
+                                    
                                 </li>
                               </ul>
                             </div>
@@ -231,9 +233,10 @@ export function Sessions(props) {
         </div>
         <ModalBox
           className="eventForm_model"
-          show={showModel}
+          show={showSessionModel}
           onHide={() => {
-            setShowModel(false);
+            setShowSessionModel(false);
+            setShowModel(true);
           }}
         >
           <SessionsForm
@@ -251,7 +254,7 @@ export function Sessions(props) {
             getRegAmount={(data) => props.getRegAmount(data)}
             getSessionPrice={(data) => props.getSessionPrice(data)}
             sessionPriceData={props.sessionPriceData}
-            showModel={(data) => setShowModel(data)}
+            showSessionModel={(data) => setShowSessionModel(data)}
             clearFields={clearFields}
           />
         </ModalBox>

@@ -31,7 +31,7 @@ import {
   clearRegistrantsSessionsData,
   getRegistrantsInformationTemplate21,
   getRegistrantSessionsTemplate21,
-  getRegistrantsInformationByIDTemplate21,  
+  getRegistrantsInformationByIDTemplate21,
   addRegistrantsInformation,
   updateRegistrantsInformation,
   getDicountCodeByRegId,
@@ -74,7 +74,7 @@ export function RegInfoGroup(props) {
   const paymentDetails = useSelector(paymentDetailsSelector);
   const fieldQADiscSessions = useSelector(fieldQADiscSessionsSelector);
 
-  console.log('registrantsData.discountAmtByID',registrantsData.discountAmtByID)
+  // console.log('fieldQADiscSessions',fieldQADiscSessions)
 
   useEffect(() => {
     const loginCheck = JSON.parse(sessionStorage.getItem("adminToken"))
@@ -307,21 +307,21 @@ export function RegInfoGroup(props) {
   }
 
   const getDiscountCodeById = postData => {
-    dispatch(getDicountCodeByRegId({ 
+    dispatch(getDicountCodeByRegId({
       lAccountID : userId,
       lEventID : eventId,
       sApplyToRegTypes : postData
     }));
   }
-  
+
   const getDiscountAmtByID = discountId => {
-    dispatch(getDiscountAmountByID({ 
+    dispatch(getDiscountAmountByID({
       lAccountID : userId,
       lEventID : eventId,
       lDiscountID : discountId
     }));
   }
-
+  
   return (
     <>
       <AdminLayout pageHeading="Registrant">
@@ -380,7 +380,7 @@ export function RegInfoGroup(props) {
                       fieldQADiscSessions.registrantField
                         ? fieldQADiscSessions.registrantField.result
                         : {}
-                    }                    
+                    }
                     totalBalance={totalBalance}
                     clearFields={clearFields}
                   />
@@ -447,19 +447,19 @@ export function RegInfoGroup(props) {
                         : ""
                     }
                     getRegAmount={(data) => getRegAmountData(data)}
-                    getRegTypesAmount={(data) => getRegTypesAmount(data)}                    
+                    getRegTypesAmount={(data) => getRegTypesAmount(data)}
                     discountCodeByRegId={(postData) => getDiscountCodeById(postData)}
                     sendDiscountCodeByRegId={
-                      registrantsData.discountCodeByRegId !== undefined &&
-                      registrantsData.discountCodeByRegId.discountCode !== undefined
-                        ? registrantsData.discountCodeByRegId.discountCode
-                        : ""
+                    registrantsData.discountCodeByRegId !== undefined &&
+                    registrantsData.discountCodeByRegId.discountCode !== undefined
+                    ? registrantsData.discountCodeByRegId.discountCode
+                    : ""
                     }
                     getDiscountAmtByID = {(discountId) => getDiscountAmtByID(discountId)}
                     discountAmtByID = { registrantsData.discountAmtByID !== undefined &&
-                      registrantsData.discountAmtByID.discountAmt !== undefined
-                        ? registrantsData.discountAmtByID.discountAmt
-                        : "" }
+                    registrantsData.discountAmtByID.discountAmt !== undefined
+                    ? registrantsData.discountAmtByID.discountAmt
+                    : "" }
                   />                  
                 </Accordion.Body>
               </Accordion.Item>

@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should take a snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="admin-login"
+  >
+    <div
+      class="container"
+    >
+      <div
+        class="row login-wrap"
+      >
+        <div
+          class="col-md-7 col-xs-12 admin-image"
+        >
+          <img
+            alt=""
+            class="img-fluid"
+            src="./assets/images/admin-login-panel.jpg"
+          />
+          <div
+            class="admin-logo"
+          >
+            <img
+              alt=""
+              class="img-fluid"
+              src="./assets/images/admin-logo.png"
+            />
+          </div>
+        </div>
+        <div
+          class="col-md-5 col-xs-12"
+        >
+          <div
+            class="form-content"
+          >
+            <form>
+              <div
+                class="row"
+              >
+                <div
+                  class="successMsg text-success"
+                />
+                <div
+                  class="col-12 "
+                >
+                  <h4>
+                    Client Log
+                  </h4>
+                </div>
+                <div
+                  class="col-md-12 col-xs-12"
+                >
+                  <input
+                    class="form-control"
+                    name="username"
+                    placeholder="User Name"
+                    type="text"
+                  />
+                </div>
+                <br />
+                <div
+                  class="col-md-12 col-xs-12"
+                >
+                  <input
+                    class="form-control"
+                    name="password"
+                    placeholder="Password"
+                    type="password"
+                  />
+                </div>
+              </div>
+              <div>
+                <button
+                  class="btn"
+                  type="submit"
+                >
+                  Login
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

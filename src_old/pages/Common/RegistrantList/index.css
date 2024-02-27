@@ -1,0 +1,29 @@
+.btn-green {
+    background-color: #1ea026 !important;
+    border: 1px solid #1ea026 !important;
+}
+
+.btn-light-green {
+    background-color: #80bb3f !important;
+    border: 1px solid #80bb3f !important;
+}
+
+.regInfo ul {
+    display: flex;
+    padding-left: 0px;
+    width: 100%;
+    align-items: baseline;
+    margin-bottom: 0px;
+}
+
+.regInfo ul li {
+    list-style: none;
+}
+
+.regInfo ul li:first-child {
+    min-width: 120px;
+}
+
+.regInfo ul li:nth-child(2) {
+    width: 100%;
+}

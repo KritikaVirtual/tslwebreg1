@@ -14,7 +14,7 @@ export function GuestsAddtionalInformationForm(props) {
     sEmail: "",
     nStatus: "",
     dRegAmount: "",
-    dAmount:"",
+    dDiscAmt:"",
     sDiscountExtraText:"",
     dSpecialDiscountAmt:"",
     lDiscountID:0
@@ -36,20 +36,20 @@ export function GuestsAddtionalInformationForm(props) {
     if (props.clearFields) {
       setFields({});
     }
+    
   }, [props.sendRegistrantInfoByID]);
   
   useEffect(() => {
     let data = fields;
     if(props.regTypesAmountData !== undefined){
-      data["dRegAmount"] = props.regTypesAmountData.dEarlyAmt;
-      setFields({...data});
+    data["dRegAmount"] = props.regTypesAmountData.dEarlyAmt;
+    setFields({...data});
     }
-    console.log(props.discountAmtByID);
     if(props.discountAmtByID !== undefined){
-      data["dAmount"] = props.discountAmtByID.dAmount;
-      setFields({...data});
+    data["dDiscAmt"] = props.discountAmtByID.dAmount;
+    setFields({...data});
     }
-  },[props.regTypesAmountData.dEarlyAmt, props.discountAmtByID.dAmount])
+    },[props.regTypesAmountData.dEarlyAmt, props.discountAmtByID.dAmount])
 
   useEffect(() => {
     if (
@@ -64,7 +64,7 @@ export function GuestsAddtionalInformationForm(props) {
     // }
     
   }, [props.registrantRegID]);
-  
+
   useEffect(()=>{
     if(props.answersGuestData){
       const answerRegData = props.answersGuestData
@@ -130,7 +130,6 @@ export function GuestsAddtionalInformationForm(props) {
   const handleChange = (event) => {
     let data = fields;
     data[event.target.name] = event.target.value;
-
     if (event.target.name == "lRegType") {
       data["lRegType"] = event.target.value;
       props.getRegTypesAmount(data);
@@ -140,10 +139,8 @@ export function GuestsAddtionalInformationForm(props) {
       data["lDiscountID"] = event.target.value;
       props.getDiscountAmtByID(event.target.value)
     }
-
     setFields({ ...data });
-
-  };
+    };
 
   const _handleSubmit = (event) => {
     event.preventDefault();
@@ -160,13 +157,14 @@ export function GuestsAddtionalInformationForm(props) {
           sEmail: fields.sEmail,
           lRegType: fields.lRegType,       
           dRegAmount: fields.dRegAmount,   
-          dAmount: fields.dAmount,
+          dDiscAmt: fields.dDiscAmt,
           sDiscountExtraText: fields.sDiscountExtraText,
           dSpecialDiscountAmt: fields.dSpecialDiscountAmt,  
           nStatus: fields.nStatus,
-          lDiscountID: fields.lDiscountID
+          lDiscountID: fields.lDiscountID,
+          fieldsChecked : fieldsChecked,
+          fieldsText : fieldsText
         };
-
 
         if(sessionStorage.getItem("RegistrantRegId")){
           postData['lRegID'] = sessionStorage.getItem("RegistrantRegId");
@@ -366,21 +364,29 @@ export function GuestsAddtionalInformationForm(props) {
       </>
     );
   };
-  
+
+  const callRegTypesData = (regTypeData) => {
+    if (regTypeData && regTypeData.length > 0) {
+      return regTypeData.map((data, index) => (
+        <>
+          <option value={data.value}>{data.label}</option>
+        </>
+      ));
+    }
+  };
+
   const callDataOnLoad = (data, type) => {
     var pushData = []
     pushData.push(<option value="0">{type}</option>)
     if (data && data.length > 0) {
       data.map((data, index) => (
-        pushData.push(          
-          <option value={data.value}>{data.label}</option>
-        )
+      pushData.push(
+      <option value={data.value}>{data.label}</option>
+      )
       ));
     }
     return pushData
-  };
-
-  
+    };
 
   return (
     <>
@@ -496,17 +502,17 @@ export function GuestsAddtionalInformationForm(props) {
                         value={fields?.lRegType}
                       >
                         {props.regTypesData ? (
-                          callDataOnLoad(props.regTypesData,'Select Reg Type')
+                        callDataOnLoad(props.regTypesData,'Select Reg Type')
                         ) : (
-                          <option value="0">Select Reg Type</option>
+                        <option value="0">Select Reg Type</option>
                         )}
                       </select>
                       {errors.lRegType ? (
-                        <div className="errorMsg text-danger">
-                          {errors.lRegType}
-                        </div>
+                      <div className="errorMsg text-danger">
+                      {errors.lRegType}
+                      </div>
                       ) : (
-                        ""
+                      ""
                       )}
                     </div>
 
@@ -555,7 +561,6 @@ export function GuestsAddtionalInformationForm(props) {
                     </div> */}
 
                     <div className="col-md-12 col-xs-12">
-                      
                       <select
                         id="lDiscountID"
                         className="form-control"
@@ -565,10 +570,10 @@ export function GuestsAddtionalInformationForm(props) {
                       >
                         {props.sendDiscountCodeByRegId ? (
                           callDataOnLoad(props.sendDiscountCodeByRegId,'Select Discount Code')
-                        ) : (
-                          <option value="0">Select Discount Code</option>
-                        )}
-                      </select>
+                          ) : (
+                            <option value="0">Select Discount Code</option>
+                          )}
+                        </select>
                     </div>
 
                     <div className="col-md-12 col-xs-12">
@@ -576,8 +581,8 @@ export function GuestsAddtionalInformationForm(props) {
                         type="text"
                         className="form-control"
                         placeholder="Disc Amt"
-                        name="dAmount"
-                        value={fields?.dAmount}
+                        name="dDiscAmt"
+                        value={fields?.dDiscAmt}
                         onChange={(event) => handleChange(event)}
                       />
                     </div>

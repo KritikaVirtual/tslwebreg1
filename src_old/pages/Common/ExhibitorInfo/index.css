@@ -1,0 +1,42 @@
+label.control-labelsmall {
+    display: inline-block;
+    max-width: 173px;
+    width: 100%;
+}
+.controls3 {
+    display: inline-block;
+}
+.Exhibitor-info-tab .card {
+    box-shadow: inherit;
+    border: 0px;
+}
+.Exhibitor-info-tab { margin-bottom:20px; }
+.demo {
+    padding-top: 0px;
+}
+
+
+/*exhibitor info css start here*/
+.dashboard-table-format .card-body {
+    padding: 10px;
+}
+.Exhibitor-wrap input {
+    border: 1px solid #ccc;
+}
+.Exhibitor-wrap input::placeholder { font-size:12px; }
+.Exhibitor-wrap textarea {
+    border: 1px solid #ccc;
+}
+.Exhibitor-wrap select {
+    border: 1px solid #ccc;
+}
+
+.pagination-wrap { padding-top:10px; }
+.document-wrap .btn { margin:0 auto; }
+.setup-wrap ul { display:flex; padding-left:0px; }
+.setup-wrap ul li { list-style:none; width:100%; }
+.setup-wrap ul li input {  width:100%; }
+.setup-wrap ul li:first-child { max-width:200px; width:100%;  }
+.exhInfoTable{
+    width: 100%;
+}

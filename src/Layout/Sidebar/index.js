@@ -51,7 +51,7 @@ const Sidebar = () => {
           </li>
 
           <li className={`nav-item ${urlName == "/members" ? "active" : ""}`}>
-            <Link className="nav-link" to="/members">
+            <Link className="nav-link" to="">
               <i className="fa fa-users" aria-hidden="true"></i>
               <span> Members</span>
             </Link>

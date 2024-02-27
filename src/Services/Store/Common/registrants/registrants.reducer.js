@@ -19,7 +19,7 @@ const INITIAL_STATE = {
   registrantsInfo: [],
   registrantsSessionsInfo: [],
   registrantsInfoByID : [],
-  discountAmtByID : []
+  registrantMainRegIDExist : []
 };
 
 export const registrantsReducer = (state = INITIAL_STATE, action) => {
@@ -424,6 +424,27 @@ export const registrantsReducer = (state = INITIAL_STATE, action) => {
           registrantsInfoByID: [],
         };
 
+      case USER_ACTION_TYPE.GET_REGISTRANTS_GROUPS_MAINREGID_EXIST_PENDING:
+        return {
+          ...state,
+          blocking: true,
+          registrantMainRegIDExist: [],
+        };
+  
+      case USER_ACTION_TYPE.GET_REGISTRANTS_GROUPS_MAINREGID_EXIST_SUCESS:
+        return {
+          ...state,
+          blocking: false,
+          registrantMainRegIDExist: payload,
+        };
+  
+      case USER_ACTION_TYPE.GET_REGISTRANTS_GROUPS_MAINREGID_EXIST_ERROR:
+        return {
+          ...state,
+          blocking: false,
+          registrantMainRegIDExist: [],
+        };
+
       case USER_ACTION_TYPE.RESET_REG_DATA:
         return {
           ...state,
@@ -443,35 +464,15 @@ export const registrantsReducer = (state = INITIAL_STATE, action) => {
             ...state,
             blocking: false,
             registrantSessions: [],
-          };
+      };
 
-       case USER_ACTION_TYPE.GET_REGISTRANTS_SESSIONS_TEMPLATE21_SUCESS:
-        return {
-          ...state,
-          blocking: false,
-          registrantsSessionsInfo: [],
-        };
+      case USER_ACTION_TYPE.RESET_REGISTRANTS_GROUPS_MAINREGID_EXIST:
+          return {
+            ...state,
+            blocking: false,
+            registrantMainRegIDExist: [],
+      };
 
-      case USER_ACTION_TYPE.GET_REGISTRANTS_INFO_BY_ID_TEMPLATE21_PENDING:
-        return {
-          ...state,
-          blocking: true,
-          registrantsInfoByID: [],
-        };
-  
-      case USER_ACTION_TYPE.GET_REGISTRANTS_INFO_BY_ID_TEMPLATE21_SUCESS:
-        return {
-          ...state,
-          blocking: false,
-          registrantsInfoByID: payload,
-        };
-  
-      case USER_ACTION_TYPE.GET_REGISTRANTS_INFO_BY_ID_TEMPLATE21_ERROR:
-        return {
-          ...state,
-          blocking: false,
-          registrantsInfoByID: [],
-        };
       case USER_ACTION_TYPE.GET_DICOUNT_CODE_BY_REGID_SUCESS:
         return {
           ...state,
@@ -481,39 +482,41 @@ export const registrantsReducer = (state = INITIAL_STATE, action) => {
 
       case USER_ACTION_TYPE.GET_DICOUNT_CODE_BY_REGID_SUCESS_PENDING:
         return {
-          ...state,
-          blocking: true,
-          discountCodeByRegId: [],
-        };
-  
-  
+        ...state,
+        blocking: true,
+        discountCodeByRegId: [],
+      };
+
       case USER_ACTION_TYPE.GET_DICOUNT_CODE_BY_REGID_SUCESS_ERROR:
         return {
-          ...state,
-          blocking: false,
-          discountCodeByRegId: [],
-        };
-      
+        ...state,
+        blocking: false,
+        discountCodeByRegId: [],
+      };
+
       case USER_ACTION_TYPE.GET_DICOUNT_AMT_BY_ID_PENDING:
         return {
-          ...state,
-          blocking: true,
-          discountAmtByID: [],
-        };
-  
+        ...state,
+        blocking: true,
+        discountAmtByID: [],
+      };
+        
+      
       case USER_ACTION_TYPE.GET_DICOUNT_AMT_BY_ID_SUCESS:
         return {
-          ...state,
-          blocking: false,
-          discountAmtByID: payload,
-        };
-  
+        ...state,
+        blocking: false,
+        discountAmtByID: payload,
+      };
+
       case USER_ACTION_TYPE.GET_DICOUNT_AMT_BY_ID_ERROR:
         return {
-          ...state,
-          blocking: false,
-          discountAmtByID: [],
-        };
+        ...state,
+        blocking: false,
+        discountAmtByID: [],
+      };
+
+        
     default:
       return state;
   }
